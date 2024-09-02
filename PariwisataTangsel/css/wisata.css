@@ -1,0 +1,396 @@
+:root {
+  --primary: #b6895b;
+  --bg: #362424;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+  /* min-height: 3000px;*/
+}
+
+.products h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.products h2 span {
+  color: var(--primary);
+}
+
+/*Products section*/
+
+.products .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.products .product-card {
+  text-align: center;
+  border: 1px solid #666;
+  padding: 2rem;
+}
+
+.products .product-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.product-icons a {
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  margin: 0.5rem;
+  border: 1px solid #666;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.products .product-icons a:hover {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.products .product-image {
+  padding: 1rem 0;
+}
+.products .product-image img {
+  height: 25rem;
+}
+.products .product-content h3 {
+  font-size: 2rem;
+}
+
+/* footer */
+.socials,
+.links,
+.credit {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0;
+}
+.socials a {
+  color: #fff;
+}
+.socials a:hover {
+  color: var(--bg);
+}
+
+.links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+}
+.links a:hover {
+  color: var(--bg);
+}
+
+.credit a {
+  font-size: 0.8;
+  color: var(--bg);
+  font-weight: 800;
+}
+
+/*Modal box*/
+/*item detail*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0, 0.8);
+}
+.modal-container {
+  position: relative;
+  background-color: #fefefe;
+  color: var(--bg);
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid #666;
+  width: 80%;
+  animation: animateModal 0.5s;
+}
+
+/*modal animasi*/
+@keyframes animateModal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-container .close-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-content img {
+  height: 15rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+}
+
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: var(--primary);
+  color: #fff;
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+}
+
+.modal-container .product-stars {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: var(--primary);
+}
+
+.modal-content .product-stars .star-full {
+  fill: var(--primary);
+}
+
+.modal-container .product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.modal-content .product-price span {
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+/*media queries*/
+
+/*laptop*/
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/*tablet*/
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5em;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .search-form {
+    width: 90%;
+    right: 2rem;
+  }
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  .about .row .about-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+  .menu p {
+    font-size: 1.2rem;
+  }
+}
+
+/*Menu */
+.menu h2,
+.contact h2 {
+  margin-bottom: 1rem;
+}
+.menu p,
+.contact p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+  font-weight: 100;
+}
+/*pengaturan form contact table*/
+.contact .row {
+  flex-wrap: wrap;
+}
+
+.contact .row .map {
+  height: 30rem;
+}
+.contact .row from {
+  padding-top: 0;
+}
+
+.modal-content {
+  flex-wrap: wrap;
+}
+
+/*PAMULANG DESTINATION*/
+html,
+body {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: #202020;
+  text-align: center;
+}
+.container {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card {
+  height: 280px;
+  max-width: 350px;
+  margin: 0 20px;
+  background: white;
+  transition: 0.4s;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.card:hover {
+  height: 470px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card .img {
+  height: 200px;
+  width: 100%;
+}
+.card .img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.card .top-text {
+  padding: 5px;
+}
+.card .top-text .name {
+  font-size: 25px;
+  font-weight: 600;
+  color: #202020;
+}
+.card .top-text p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e74c3c;
+  line-height: 20px;
+}
+.card .bottom-text {
+  padding: 0 20px 10px 20px;
+  margin-top: 5px;
+  background: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s;
+}
+.card:hover .bottom-text {
+  opacity: 1;
+  visibility: visible;
+}
+.card .bottom-text .text {
+  text-align: justify;
+}
+.card .bottom-text .btn {
+  margin: 10px 0;
+  text-align: left;
+}
+.card .bottom-text .btn a {
+  text-decoration: none;
+  background: #e74c3c;
+  color: #f2f2f2;
+  padding: 5px 8px;
+  border-radius: 3px;
+  display: inline-flex;
+  transition: 0.2s;
+}
+.card .bottom-text .btn a:hover {
+  transform: scale(0.9);
+}
+@media screen and (max-width: 978px) {
+  .container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .card {
+    max-width: 700px;
+    margin: 20px 0;
+  }
+}
